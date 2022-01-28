@@ -1,0 +1,6 @@
+<!-- <script src="/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script> -->
+{{ $productionjs := resources.Get "js/production.js" | js.Build (dict "targetpath" "js/production.min.css") | fingerprint }}
+<script src="{{ $productionjs.Permalink }}" async></script>

@@ -1,0 +1,20 @@
+<!doctype html>
+{{ `<!--[if lt IE 7]><html class="ie6 oldie"><![endif]-->` | safeHTML }}
+{{ `<!--[if IE 7]><html class="ie7 oldie"><![endif]-->` | safeHTML }}
+{{ `<!--[if IE 8]><html class="ie8 oldie"><![endif]-->` | safeHTML }}
+{{ `<!--[if gt IE 8]><!-->` | safeHTML }}
+<html class="">
+{{ `<!--<![endif]-->` | safeHTML }}
+    {{- partial "head.html" . -}}
+    <body>
+      {{- if not (.IsHome) -}}{{- partial "header.html" . -}}{{- end -}}
+
+      <div class="page-wrapper">
+  		  <div class="gridContainer clearfix">
+        {{- block "main" . }}{{- end }}
+        </div>
+      </div>
+        {{- partial "footer.html" . -}}
+        {{- partial "script.html" . -}}
+    </body>
+</html>
